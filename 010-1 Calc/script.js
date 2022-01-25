@@ -1,47 +1,50 @@
 function Calc(action, var1, var2) {
-    if (action === undefined || var1 === undefined || var2 === undefined) {
-        alert('Error! calc must has 3 parameters');
-    } else {
-        !isNumber(+var1) ? alert(var1 + "Error! var1 isn't number") : 
-                !isNumber(+var2) ? alert(var2 + "Error! var2 isn't number") : doAction(action, +var1, +var2);
+    let paramsQtyError = action === undefined || var1 === undefined || var2 === undefined;
+    
+    if (paramsQtyError) {
+        return 'Error! There are must be 3 parameters.';
+    } else if (!isNumber(var1)) {
+        return "Error! Variable 1 isn't number.";
+    } else if (!isNumber(var2)) {
+        return "Error! Variable 2 isn't number";
     }
+    return calculate(action, +var1, +var2);
 }
 
 function isNumber(x) {
-    return typeof(x) === 'number';
+    return !isNaN(x) && typeof(x) === 'number';
 }
 
-function doAction(action, var1, var2) {
+function calculate(action, var1, var2) {
     switch (action) {
         case 'sum':
-            alert(var1 + var2);
+            return var1 + var2;
             break;
         case 'sub':
-            alert(var1 - var2);
+            return var1 - var2;
             break;
-        case 'mul':
-            alert(var1 * var2);
+        case 'mult':
+            return var1 * var2;
             break;
         case 'div':
-            alert(var1 / var2);
-            break;
-        case 'rem':
-            alert(var1 % var2);
-            break;
-        case 'pow':
-            alert(var1 ** var2);
+            return var1 / var2;
             break;
         default:
-            alert("Command hasn't recognised.");
+            return "Error! Unknown operation.";
             break;
     };
 }
 
 console.log(Calc('sum', 2, 5));
 console.log(Calc('sub', 2, 5));
-console.log(Calc('mul', 2, 5));
+console.log(Calc('mult', 2, 5));
 console.log(Calc('div', 2, 5));
-console.log(Calc('rem', 2, 5));
+
 console.log(Calc('pow', 2, 5));
 
-Calc(prompt('Введите команду'), prompt('Введите число'), prompt('Введите число'));
+console.log(Calc('sum', 2));
+console.log(Calc('sub'));
+console.log(Calc());
+
+console.log(Calc('mult', '2', 5));
+console.log(Calc('div', 2, 'e'));
