@@ -1,4 +1,3 @@
-//Statuses list
 const STATUS = {
     DONE: "Done",
     IN_PROGRESS: "In Progress",
@@ -7,13 +6,12 @@ const STATUS = {
 
 const DEFAULT_STATUS = STATUS.TO_DO;
 
-//Простой TODO лист без графического интерфейса
 const taskList = {
-    contains: contains,
-    changeStatus: changeStatus,
-    addTask: addTask,
-    deleteTask: deleteTask,
-    showList: showList,
+    contains,
+    changeStatus,
+    addTask,
+    deleteTask,
+    showList,
     "Wake up": STATUS.DONE,
     "Go to bathroom": STATUS.DONE,
     "Make breakfast": STATUS.DONE,
@@ -33,7 +31,6 @@ function contains(task){
     return task in this;
 }
 
-//Функция changeStatus - будет менять статус задачи
 function changeStatus(task, status) {
     if (this.contains(task)) {
         this[task] = status;
@@ -42,7 +39,6 @@ function changeStatus(task, status) {
 	}
 }
 
-//Функция addTask - добавляет новую задачу
 function addTask(task, status = STATUS.DEFAULT_STATUS) {
     if (!this.contains(task)) {
         this[task] = status;
@@ -51,7 +47,6 @@ function addTask(task, status = STATUS.DEFAULT_STATUS) {
 	}
 }
 
-//Функция deleteTask - удаляет задачу
 function deleteTask(task) {
     if (this.contains(task)) {
         delete this[task];
@@ -60,7 +55,6 @@ function deleteTask(task) {
 	}
 }
 
-//Функция showList будет выводить весь список дел в виде
 function showList() {
     const emptyString = '';
     let result = emptyString;
