@@ -1,4 +1,4 @@
-//TODO Calc through object
+//Calc through plain object
 function Calc(action, var1, var2) {
     let paramsQtyError = action === undefined || var1 === undefined || var2 === undefined;
 
@@ -10,7 +10,7 @@ function Calc(action, var1, var2) {
     }
     
     if (paramsQtyError) {
-        return 'Error! There are must be 3 parameters.';
+        return 'Error! It must be 3 parameters.';
     } else if (!(action in calculator)) {
         return "Error! Unknown operation.";
     } else if (!isNumber(var1)) {
