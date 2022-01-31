@@ -1,4 +1,3 @@
-
 function showVerticalMessage(str) {
     let m = 'м';
     let result = str.startsWith(m) ? m.toUpperCase() : str[0];
@@ -10,7 +9,7 @@ function showVerticalMessage(str) {
 }
 
 //Function test
-console.log(showVerticalMessage('ABC'));
+console.log(showVerticalMessage('abcdef'));
 console.log();
 console.log(showVerticalMessage('ABCDEFGHIJabcdefghij'));
 console.log();
