@@ -1,16 +1,21 @@
 function showVerticalMessage(str) {
-    let m = 'м';
-    let result = str.startsWith(m) ? m.toUpperCase() : str[0];
-    for (let char of (str.slice(1, 10))) {
-        result += `\n${char}`;
+    let result = '';
+    if (str != result)  {
+        let m = 'м';
+        result += str.startsWith(m) ? m.toUpperCase() : str[0];
+        for (let char of (str.slice(1, 10))) {
+            result += `\n${char}`;
+        }
     }
 
-    return result;
+    console.log(result);
 }
 
 //Function test
-console.log(showVerticalMessage('abcdef'));
+showVerticalMessage('');
 console.log();
-console.log(showVerticalMessage('ABCDEFGHIJabcdefghij'));
+showVerticalMessage('abcdef');
 console.log();
-console.log(showVerticalMessage('марафон'));
+showVerticalMessage('ABCDEFGHIJabcdefghij');
+console.log();
+showVerticalMessage('марафон');
