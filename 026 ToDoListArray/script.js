@@ -53,7 +53,7 @@ function changeStatus(array, name, status) {
         let index = getIndexByName(array, name);
         array[index].status = status;
     } else {
-		console.log("Task " + name + " doesn't present in task list.");
+		console.log(`Task ${name} doesn't present in task list.`);
 	}
 }
 
@@ -61,7 +61,7 @@ function addTask(array, name, status = DEFAULT_STATUS, priority = DEFAULT_PRIORI
     if (!contains(array, name)) {
         array.push({name, status, priority});
     } else {
-		console.log("Task " + name + " already present in task list.");
+		console.log(`Task ${name} already present in task list.`);
 	}
 }
 
@@ -69,7 +69,7 @@ function deleteTask(array, name) {
     if (contains(array, name)) {
         array.splice(getIndexByName(array, name), 1);
     } else {
-		console.log("Task " + name + " doesn't present in task list.");
+		console.log(`Task ${name} doesn't present in task list.`);
 	}
 }
 
@@ -83,11 +83,11 @@ function showList(array) {
         
         for (let task of array) {
             if (task.status === status) {
-                tasks += "\t" + getTaskString(task) + "\n";
+                tasks += '\t' + getTaskString(task) + '\n';
             }
         }
 
-        result += status + ":\n";
+        result += status + ':\n';
         result += tasks === emptyString ? '\t-\n' : tasks;
     }
 
