@@ -50,7 +50,7 @@ function contains(array, name){
 
 function changeStatus(array, name, status) {
     if (contains(array, name)) {
-        let index = getIndexByName(array, name);
+        const index = getIndexByName(array, name);
         array[index].status = status;
     } else {
 		console.log(`Task ${name} doesn't present in task list.`);
@@ -59,7 +59,7 @@ function changeStatus(array, name, status) {
 
 function changePriority(array, name, priority) {
     if (contains(array, name)) {
-        let index = getIndexByName(array, name);
+        const index = getIndexByName(array, name);
         array[index].priority = priority;
     } else {
 		console.log(`Task ${name} doesn't present in task list.`);
@@ -83,24 +83,22 @@ function deleteTask(array, name) {
 }
 
 function showList(array) {
-    const emptyString = '';
-    let result = emptyString;
+    const result = [];
 
     for (let st in STATUS) {
-        let status = STATUS[st];
-        let tasks = emptyString;
+        const status = STATUS[st];
+        const tasks = [];
         
         for (let task of array) {
             if (task.status === status) {
-                tasks += '\t' + getTaskString(task) + '\n';
+                tasks.push(getTaskString(task));
             }
         }
-
-        result += status + ':\n';
-        result += tasks === emptyString ? '\t-\n' : tasks;
+        result.push(status + ':');
+        result.push('\t' + (!tasks.length ? '-' : tasks.join('\n\t')));
     }
 
-    return result;
+    return result.join('\n');
 }
 
 function showBy(array, priority = DEFAULT_PRIORITY) {
