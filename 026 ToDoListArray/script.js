@@ -67,7 +67,7 @@ function addTask(array, name, status = DEFAULT_STATUS, priority = DEFAULT_PRIORI
 
 function deleteTask(array, name) {
     if (contains(array, name)) {
-        array.splice(getIndexByName(array, name));
+        array.splice(getIndexByName(array, name), 1);
     } else {
 		console.log("Task " + name + " doesn't present in task list.");
 	}
