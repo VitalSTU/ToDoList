@@ -57,6 +57,15 @@ function changeStatus(array, name, status) {
 	}
 }
 
+function changePriority(array, name, priority) {
+    if (contains(array, name)) {
+        let index = getIndexByName(array, name);
+        array[index].priority = priority;
+    } else {
+		console.log(`Task ${name} doesn't present in task list.`);
+	}
+}
+
 function addTask(array, name, status = DEFAULT_STATUS, priority = DEFAULT_PRIORITY) {
     if (!contains(array, name)) {
         array.push({name, status, priority});
