@@ -29,6 +29,12 @@ const OPERATORS = {
     [OPERATOR_DIV]: ACTION_DIV,
 }
 
+const FONT_SIZE = {
+    1: '96px',
+    7: '48px',
+    14: '24px',
+}
+
 function isNumber(n) {
     return !isNaN(n) && typeof(n) === 'number';
 }
@@ -52,16 +58,17 @@ function Calc(action, var1, var2) {
 }
 
 function clearData() {
-    console.log('ddd');
-
     let resultObject = document.querySelector(RESULT_OBJECT_CLASS);
 
     isError = false;
     operatorIsSet = false;
     operator = EMPTY_STRING;
     resultObject.innerHTML = ZERO;
+    resultObject.style.fontSize = FONT_SIZE[6];
     var1 = ZERO;
     var2 = ZERO;
+
+    setFont(resultObject);
 }
 
 function calculate() {
@@ -71,6 +78,8 @@ function calculate() {
     
         clearData();
         resultObject.innerHTML = result;
+
+        setFont(resultObject);
     }
 }
 
@@ -97,6 +106,8 @@ function addNumber(elem) {
             var2 = String(Number(var2 + elem.innerText));
             resultObject.innerHTML = var2;
         }
+    
+        setFont(resultObject);
     }
 }
 
@@ -111,6 +122,8 @@ function eraseLastNumber() {
             var2 = deleteLastNumber(var2);
             resultObject.innerHTML = var2;
         }
+    
+        setFont(resultObject);
     }
 }
 
@@ -119,5 +132,13 @@ function deleteLastNumber(str) {
         return ZERO;
     } else {
         return str.substring(0, str.length - 1);
+    }
+}
+
+function setFont(elem) {
+    for (const [limit, fontSize] of Object.entries(FONT_SIZE)) {
+        if (elem.innerHTML.length >= limit) {
+            elem.style.fontSize = fontSize;
+        }
     }
 }
