@@ -1,0 +1,122 @@
+.frame {
+    width: 476px;
+    height: 688px;
+    margin: auto;
+    background-color: #E5E5E5;
+    padding-top: 13px;
+}
+
+.form {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.header {
+    margin: 0px;
+    padding-top: 12px;
+    padding-left: calc(50% - 21px);
+    width: 43px;
+    height: 21px;
+    text-align: center;
+    font: Roboto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    color: #000000;
+}
+
+.container {
+    margin-top: 8px;
+    width: 100%;
+    min-height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.input {
+    width: calc(100% - 40px);
+    height: 45px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: none;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    padding-left: 12px;
+    padding-right: 36px;
+}
+
+.input::placeholder {
+    width: 230px;
+    height: 21px;
+}
+
+input[type=submit] {
+    position: static;
+    margin-bottom: 10px;
+
+    height: 21px;
+    width: 21px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    border: 0;
+    font-size: 18px;
+    float: right;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
+
+input[type=radio] {
+    margin: 12px 0px 12px 12px;
+    width: 21px;
+    height: 21px;
+    border: 1px solid #998899;
+    box-sizing: border-box;
+}
+
+input[type=radio]:checked + label {
+    /*background-color: #F4F4F4;*/
+    background-color: #F4F4F4;
+}
+
+svg {
+    position: static;
+    margin-top: 13px;
+    margin-right: 12px;
+
+    height: 18px;
+    width: 18px;
+    background: #FFFFFF;
+    border: 1px solid #989898;
+    border-radius: 6px;
+    border: 0;
+    font-size: 18px;
+    float: right;
+}
+
+svg:hover {
+    cursor: pointer;
+}
+
+.label {
+    display: grid;
+    margin: -29px 12px 12px;
+    padding: 0px 15px 0px 30px;
+    width: 370px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #202020;
+}
