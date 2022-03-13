@@ -1,12 +1,11 @@
 .frame {
     width: 476px;
-    height: 688px;
     margin: auto;
     background-color: #E5E5E5;
     padding-top: 13px;
 }
 
-.form {
+.list {
     margin-left: 8px;
     margin-right: 8px;
 }
@@ -76,7 +75,7 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-input[type=radio] {
+input[type=radio], input[type=checkbox] {
     margin: 12px 0px 12px 12px;
     width: 21px;
     height: 21px;
@@ -84,12 +83,12 @@ input[type=radio] {
     box-sizing: border-box;
 }
 
-input[type=radio]:checked + label {
+input[type=radio]:checked + label, input[type=checkbox]:checked + label {
     /*background-color: #F4F4F4;*/
     background-color: #F4F4F4;
 }
 
-svg {
+svg, .add-button {
     position: static;
     margin-top: 13px;
     margin-right: 12px;
@@ -104,7 +103,7 @@ svg {
     float: right;
 }
 
-svg:hover {
+svg:hover, .button:hover {
     cursor: pointer;
 }
 

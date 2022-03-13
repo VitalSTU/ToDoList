@@ -2,7 +2,6 @@
 
 const STATUS = {
     DONE: "Done",
-    IN_PROGRESS: "In Progress",
     TO_DO: "To Do",
 }
 
@@ -25,7 +24,7 @@ const taskArray = [
     {name: 'Watch Artem Dimitrov\'s stream', status: STATUS.DONE, priority: PRIORITY.MEDIUM},
     {name: 'Make lunch', status: STATUS.DONE, priority: PRIORITY.HIGH},
     {name: 'Take lunch', status: STATUS.DONE, priority: PRIORITY.HIGH},
-    {name: 'Do marathon homework', status: STATUS.IN_PROGRESS, priority: PRIORITY.MEDIUM},
+    {name: 'Do marathon homework', status: STATUS.TO_DO, priority: PRIORITY.MEDIUM},
     {name: 'Hang around', status: STATUS.TO_DO, priority: PRIORITY.LOW},
     {name: 'Make dinner', status: STATUS.TO_DO, priority: PRIORITY.HIGH},
     {name: 'Take dinner', status: STATUS.TO_DO, priority: PRIORITY.HIGH},
@@ -69,8 +68,12 @@ function changePriority(array, name, priority) {
 function addTask(array, name, status = DEFAULT_STATUS, priority = DEFAULT_PRIORITY) {
     if (!contains(array, name)) {
         array.push({name, status, priority});
+        
+        return true;
     } else {
 		console.log(`Task ${name} already present in task list.`);
+
+        return false;
 	}
 }
 
@@ -106,28 +109,28 @@ function showBy(array, priority = DEFAULT_PRIORITY) {
     return priority + ':\n' + showList(newArray);
 }
 
-//Test object methods
-let task = "Do marathon homework";
-console.log(contains(taskArray, task));
-console.log();
+////Test object methods
+//let task = "Do marathon homework";
+//console.log(contains(taskArray, task));
+//console.log();
 
-let ind = getIndexByName(taskArray, task);
-printTask(taskArray, ind);
-changeStatus(taskArray, task, STATUS.DONE);
-printTask(taskArray, ind);
-console.log();
+//let ind = getIndexByName(taskArray, task);
+//printTask(taskArray, ind);
+//changeStatus(taskArray, task, STATUS.DONE);
+//printTask(taskArray, ind);
+//console.log();
 
-task = "Play a videogame";
-console.log(contains(taskArray, task));
-addTask(taskArray, task);
-console.log(contains(taskArray, task));
-printTask(taskArray, getIndexByName(taskArray, task));
-deleteTask(taskArray, task);
-console.log(contains(taskArray, task));
-console.log();
+//task = "Play a videogame";
+//console.log(contains(taskArray, task));
+//addTask(taskArray, task);
+//console.log(contains(taskArray, task));
+//printTask(taskArray, getIndexByName(taskArray, task));
+//deleteTask(taskArray, task);
+//console.log(contains(taskArray, task));
+//console.log();
 
-console.log(showList(taskArray));
-console.log();
+//console.log(showList(taskArray));
+//console.log();
 
-console.log(showBy(taskArray, PRIORITY.MEDIUM));
-//Test end
+//console.log(showBy(taskArray, PRIORITY.MEDIUM));
+////Test end
