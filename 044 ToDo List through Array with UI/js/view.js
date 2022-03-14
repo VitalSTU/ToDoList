@@ -121,7 +121,6 @@ function createDeleteSymbol() {
 }
 
 function addNewTask(elem) {
-    const emptyString = '';
     const taskName = elem.getElementsByClassName('input')[0].value;
     const priority = PRIORITY[elem.parentElement.classList[1].toUpperCase()];
 
@@ -138,12 +137,8 @@ function addNewTask(elem) {
 function deleteCurrentTask(elem) {
     const task = elem.getElementsByClassName('label')[0].innerText;
     
-    const parent = elem.parentElement;
-
     deleteTask(taskArray, task);
     elem.remove()
-
-    console.log(taskArray);
 }
 
 function setNewStatus() {
