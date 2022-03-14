@@ -108,29 +108,3 @@ function showBy(array, priority = DEFAULT_PRIORITY) {
     let newArray = array.filter(item => item.priority === priority);
     return priority + ':\n' + showList(newArray);
 }
-
-////Test object methods
-//let task = "Do marathon homework";
-//console.log(contains(taskArray, task));
-//console.log();
-
-//let ind = getIndexByName(taskArray, task);
-//printTask(taskArray, ind);
-//changeStatus(taskArray, task, STATUS.DONE);
-//printTask(taskArray, ind);
-//console.log();
-
-//task = "Play a videogame";
-//console.log(contains(taskArray, task));
-//addTask(taskArray, task);
-//console.log(contains(taskArray, task));
-//printTask(taskArray, getIndexByName(taskArray, task));
-//deleteTask(taskArray, task);
-//console.log(contains(taskArray, task));
-//console.log();
-
-//console.log(showList(taskArray));
-//console.log();
-
-//console.log(showBy(taskArray, PRIORITY.MEDIUM));
-////Test end
