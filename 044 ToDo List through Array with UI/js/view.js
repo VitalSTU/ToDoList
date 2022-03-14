@@ -1,5 +1,10 @@
 //044 ToDo List through Array with UI
 
+import {
+    PRIORITY, STATUS, DEFAULT_STATUS, taskArray, 
+    addTask, deleteTask
+} from './main.js';
+
 window.onload = function() {
     let frame = document.getElementsByClassName('frame')[0];
 
@@ -49,7 +54,10 @@ function createAddTaskForm(priority) {
     form.append(input);
 
     form.classList.add('container');
-    form.setAttribute('onsubmit', 'addNewTask(this); return false;');
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        addNewTask(this);
+    });
     input.classList.add('input');
     input.setAttribute('id', inputName);
     input.setAttribute('name', inputName);
@@ -69,7 +77,10 @@ function createTaskElement(taskName, status = STATUS.TO_DO) {
     form.append(label);
 
     form.classList.add('container');
-    form.setAttribute('onsubmit', 'deleteCurrentTask(this); return false;');
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        deleteCurrentTask(this);
+    });
     label.classList.add('label');
     label.innerText = taskName;
     input.setAttribute('type', 'checkbox');
@@ -114,17 +125,25 @@ function addNewTask(elem) {
     const taskName = elem.getElementsByClassName('input')[0].value;
     const priority = PRIORITY[elem.parentElement.classList[1].toUpperCase()];
 
-    if (taskName && addTask(taskArray, taskName, DEFAULT_STATUS, priority)) {
-        let task = createTaskElement(taskName);
-        elem.parentElement.append(task);
+    try {
+        if (taskName && addTask(taskArray, taskName, DEFAULT_STATUS, priority)) {
+            let task = createTaskElement(taskName);
+            elem.parentElement.append(task);
+        }
+    } catch (error) {
+        console.error(error);
     }
 }
 
 function deleteCurrentTask(elem) {
     const task = elem.getElementsByClassName('label')[0].innerText;
     
+    const parent = elem.parentElement;
+
     deleteTask(taskArray, task);
     elem.remove()
+
+    console.log(taskArray);
 }
 
 function setNewStatus() {
