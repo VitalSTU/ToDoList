@@ -8,9 +8,9 @@ export const STATUS = {
 export const DEFAULT_STATUS = STATUS.TO_DO;
 
 export const PRIORITY = {
-    LOW: "Low",
-    MEDIUM: "Medium",
     HIGH: "High",
+    MEDIUM: "Medium",
+    LOW: "Low",
 }
 
 export const DEFAULT_PRIORITY = PRIORITY.LOW;

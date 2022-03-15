@@ -52,8 +52,8 @@ function createAddTaskForm(priority) {
 
     form.append(createAddSymbol());
     form.append(input);
+
     form.classList.add('container');
-    
     form.addEventListener('submit', function(event){
         event.preventDefault();
         addNewTask(this);
@@ -63,7 +63,7 @@ function createAddTaskForm(priority) {
     input.setAttribute('id', inputName);
     input.setAttribute('name', inputName);
     input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', 'Добавить');
+    input.setAttribute('placeholder', 'New task');
 
     return form;
 }
@@ -147,9 +147,6 @@ function deleteCurrentTask(elem) {
 
 function setNewStatus() {
     const taskName = this.nextSibling.innerText;
-    if (this.checked) {
-        changeStatus(taskArray, taskName, STATUS.DONE);
-    } else {
-        changeStatus(taskArray, taskName, STATUS.TO_DO);
-    }
+
+    changeStatus(taskArray, taskName, this.checked ? STATUS.DONE : STATUS.TO_DO);
 }
