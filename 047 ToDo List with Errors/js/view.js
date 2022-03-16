@@ -5,6 +5,8 @@ import {
     addTask, deleteTask, changeStatus 
 } from './main.js';
 
+const checkedElemBackgroundStyle = 'background:#F4F4F4;';
+
 window.onload = function() {
     let frame = document.getElementsByClassName('frame')[0];
 
@@ -73,7 +75,7 @@ function createTaskElement(taskName, status = STATUS.TO_DO) {
     let input = document.createElement('input');
     let label = document.createElement('label');
 
-    form.append(createDeleteSymbol());
+    form.append(createDeleteSymbol(status));
     form.append(input);
     form.append(label);
 
@@ -89,7 +91,7 @@ function createTaskElement(taskName, status = STATUS.TO_DO) {
     input.addEventListener('change', setNewStatus);
     
     if (status === STATUS.DONE) {
-        form.setAttribute('style', 'background:#F4F4F4;');
+        form.setAttribute('style', checkedElemBackgroundStyle);
         input.setAttribute('checked', true);
     }
 
@@ -110,7 +112,7 @@ function createAddSymbol() {
     return input;
 }
 
-function createDeleteSymbol() {
+function createDeleteSymbol(status) {
     let input = document.createElement('input');
 
     input.classList.add('button');
@@ -120,6 +122,10 @@ function createDeleteSymbol() {
     input.setAttribute('width', '20');
     input.setAttribute('height', '20');
     input.setAttribute('src', './resourses/cross.png');
+    
+    if (status === STATUS.DONE) {
+        input.setAttribute('style', checkedElemBackgroundStyle);
+    }
 
     return input;
 }
@@ -150,9 +156,11 @@ function setNewStatus() {
 
     if (this.checked) {
         changeStatus(taskArray, taskName, STATUS.DONE);
-        this.parentElement.setAttribute('style', 'background:#F4F4F4;');
+        this.parentElement.setAttribute('style', checkedElemBackgroundStyle);
+        this.previousSibling.setAttribute('style', checkedElemBackgroundStyle);
     } else {
         changeStatus(taskArray, taskName, STATUS.TO_DO);
         this.parentElement.removeAttribute('style');
+        this.previousSibling.removeAttribute('style');
     }
 }
