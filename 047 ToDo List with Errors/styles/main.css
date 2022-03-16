@@ -3,6 +3,7 @@
     margin: auto;
     background-color: #E5E5E5;
     padding-top: 13px;
+    padding-bottom: 13px;
 }
 
 .list {
@@ -13,8 +14,6 @@
 .header {
     margin: 0px;
     padding-top: 12px;
-    padding-left: calc(50% - 21px);
-    width: 43px;
     height: 21px;
     text-align: center;
     font: Roboto;
