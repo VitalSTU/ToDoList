@@ -86,12 +86,12 @@ function createTaskElement(taskName, status = STATUS.TO_DO) {
     label.classList.add('label');
     label.innerText = taskName;
     input.setAttribute('type', 'checkbox');
+    input.addEventListener('change', setNewStatus);
     
     if (status === STATUS.DONE) {
+        form.setAttribute('style', 'background:#F4F4F4;');
         input.setAttribute('checked', true);
     }
-    
-    input.addEventListener('change', setNewStatus);
 
     return form;
 }
@@ -148,5 +148,11 @@ function deleteCurrentTask(elem) {
 function setNewStatus() {
     const taskName = this.nextSibling.innerText;
 
-    changeStatus(taskArray, taskName, this.checked ? STATUS.DONE : STATUS.TO_DO);
+    if (this.checked) {
+        changeStatus(taskArray, taskName, STATUS.DONE);
+        this.parentElement.setAttribute('style', 'background:#F4F4F4;');
+    } else {
+        changeStatus(taskArray, taskName, STATUS.TO_DO);
+        this.parentElement.removeAttribute('style');
+    }
 }
