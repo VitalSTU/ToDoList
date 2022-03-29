@@ -24,15 +24,15 @@ export const UI_ELEMENTS = {
 export async function showWeather(event) {
     event.preventDefault();
     
-    const response = await getWeather();
-    console.log(response);
-
-    if (response !== ERROR) {
+    try {
+        const response = await getWeather();
         const icon = response.weather[0].icon;
 
         UI_ELEMENTS.TITLES_CITY_NOW.innerHTML = response.name;
         UI_ELEMENTS.NOW_TEMPERATURE.innerHTML = response.main.temp;
         UI_ELEMENTS.NOW_WEATHER.src = `${URL_ICONS}${icon}@2x.png`;
+    } catch (error) {
+        alert('2 ' + error);
     }
 }
 
